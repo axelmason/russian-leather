@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use App\Models\Role;
 use Illuminate\Database\Seeder;
 
-class PermissionSeeder extends Seeder
+class RoleSeeder extends Seeder
 {
     /**
      * Seed the application's database.
@@ -21,13 +21,13 @@ class PermissionSeeder extends Seeder
             'guest' => 'Гость',
             'individual' => 'Физ. лицо',
             'entity' => 'Юр. лицо',
-            'main_editor' => 'гланый редактор',
+            'main_editor' => 'Главный редактор',
             'manager' => 'Менеджер',
         ];
 
         foreach($roles as $slug => $name) {
             Role::create(['name' => $name, 'slug' => $slug]);
-            echo "Role ".$role." created.\n";
+            echo "Role $slug ($name) created.\n";
         }
     }
 }

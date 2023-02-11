@@ -29,7 +29,7 @@ class PermissionSeeder extends Seeder
 
         foreach($permissions as $p) {
             Permission::create(['name' => $p]);
-            echo "Permission ".$p." created.\n";
+            echo "Permission $p created.\n";
         }
     }
 }

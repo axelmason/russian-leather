@@ -6,3 +6,98 @@
 
 // Bootstrap
 @import 'bootstrap/scss/bootstrap';
+
+.video-wrapper {
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+#video {
+    width: 100%;
+    overflow: hidden;
+}
+
+main {
+    z-index: 10;
+    position: relative;
+}
+
+.logo-wrapper {
+    width: 50px;
+
+    img {
+        width: 100%;
+        transition: .3s ease;
+
+        &:hover {
+            transform: scale(1.05);
+        }
+    }
+}
+
+.language__selectors {
+    display: flex;
+    align-items: center;
+
+    .vr {
+        max-height: 50%;
+        align-self: center;
+    }
+
+    a {
+        padding: 0 5px;
+        text-decoration: none;
+    }
+}
+
+.modal-input-group {
+    display: flex;
+    flex-direction: column;
+    margin: 1.5em 0;
+
+    label {
+        font-size: 20px;
+    }
+
+    .modal-input {
+        border: none;
+        border-bottom: 1px solid #757575;
+        font-size: 20px;
+
+        &:focus {
+            outline: none;
+        }
+    }
+}
+.modal-checkbox-group {
+    display: flex;
+    align-items: center;
+
+    label {
+        margin-bottom: 0;
+        font-size: 16px;
+    }
+
+    .modal-checkbox {
+        margin-right: 5px;
+        width: 15px;
+        height: 15px;
+    }
+}
+
+.modal-error {
+    color: red;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}

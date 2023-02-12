@@ -28,6 +28,9 @@ class RolePermissionsSeeder extends Seeder
             Role::ENTITY => [
                 Permission::GET_RELATED, Permission::GET_INFO, Permission::FORM_CONTRACT, Permission::PERSONAL_WORK, Permission::REVIEWS
             ],
+            Role::MAIN_EDITOR => [
+                Permission::EDIT_CONTENT, Permission::GET_RELATED, Permission::GET_INFO, Permission::PERSONAL_WORK, Permission::REVIEWS
+            ],
             Role::MANAGER => [
                 Permission::ORDER_MANAGEMENT, Permission::GET_RELATED, Permission::GET_INFO, Permission::FORM_CONTRACT, Permission::PERSONAL_WORK, Permission::REVIEWS
             ]

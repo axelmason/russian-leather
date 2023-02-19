@@ -1,13 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            @role('guest')
-                {{ json_encode(123) }}
-            @endrole
-        </div>
-    </div>
+<div class="video-wrapper" style="z-index: -1;">
+    <video autoplay muted loop id="video">
+        <source src="{{ asset('video.mp4') }}" type="video/mp4">
+    </video>
 </div>
 @endsection

@@ -3,12 +3,8 @@
 namespace App\Services;
 
 use App\Models\Role;
-use App\Models\UserVerify;
 use App\Repositories\AuthRepository;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Mail;
-use Illuminate\Support\Str;
 
 class AuthService extends BaseService
 {
@@ -42,5 +38,15 @@ class AuthService extends BaseService
     public function logout()
     {
         Auth::logout();
+    }
+
+    public function loginIfAdmin(array $data) : bool
+    {
+        $user = $this->repository->where('email', $data['email'])->first();
+
+        if($user->role->slug != Role::ADMIN) {
+            return Auth::attempt(['email' => $data['email'], 'password' => $data['password']]);
+        }
+        return false;
     }
 }

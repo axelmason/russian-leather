@@ -20,12 +20,8 @@
 
 <body>
     <div id="app">
-        <div class="video-wrapper" style="z-index: 0;">
-            <video autoplay muted loop id="video">
-                <source src="{{ asset('video.mp4') }}" type="video/mp4">
-            </video>
-        </div>
         <main>
+            @section('header')
             <header class="py-2 border-bottom bg-white position-fixed w-100">
                 <div class="container">
                     <div class="row align-items-center">
@@ -58,7 +54,8 @@
                     </div>
                 </div>
             </header>
-            <div class="content" style="padding-top: 6em">
+            @show
+            <div class="content">
                 @yield('content')
             </div>
             {{-- <footer>

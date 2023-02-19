@@ -27,11 +27,7 @@ abstract class BaseRepository
 
     public function create($input)
     {
-        $model = $this->model;
-        $model->fill($input);
-        $model->save();
-
-        return $model;
+        return $this->model->create($input);
     }
 
     public function find($id)

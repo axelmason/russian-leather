@@ -20,7 +20,7 @@ class UserVerifyService extends BaseService
     {
         $token = Str::random(64);
 
-        UserVerify::create([
+        $this->repository->create([
             'user_id' => $user->id,
             'token' => $token
         ]);
@@ -33,7 +33,7 @@ class UserVerifyService extends BaseService
 
     public function verifyUser($token)
     {
-        $verifyUser = UserVerify::where('token', $token)->first();
+        $verifyUser = $this->repository->where('token', $token)->first();
         $message = "Sorry your email cannot be identified.";
 
         if (!is_null($verifyUser)) {

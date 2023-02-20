@@ -22,7 +22,7 @@
     <div id="app">
         <main>
             @section('header')
-            <header class="py-2 border-bottom bg-white position-fixed w-100" style="height: 75px">
+            <header class="py-2 border-bottom bg-white position-fixed w-100" style="height: 75px; z-index: 6;">
                 <div class="container">
                     <div class="row align-items-center">
                         <div class="col-lg-1">
@@ -56,22 +56,70 @@
             </header>
             @show
             <div class="content" style="padding-top: 75px;">
-                @yield('content')
-            </div>
-            {{-- <footer>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-2">
-                            <a href="#">Интернет-магазин</a>
+                <div class="container-fluid bg-dark">
+                        @if (session()->has('success'))
+                        <div class="container pt-2">
+                            <div class="alert alert-success">{{ session()->get('success') }}</div>
                         </div>
-                        <div class="col-2"></div>
-                        <div class="col-2"></div>
-                        <div class="col-2"></div>
-                        <div class="col-2"></div>
-                        <div class="col-2"></div>
-                    </div>
+                        @endif
+                    @yield('content')
                 </div>
-            </footer> --}}
+            </div>
+            @section('footer')
+                <footer>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-2">
+                                <a href="#" class="fs-5">Интернет-магазин</a>
+                            </div>
+                            <div class="col-2">
+                                <h5>Основные разделы</h5>
+                                <ul>
+                                    <li><a href="#">Раздел1</a></li>
+                                    <li><a href="#">Раздел2</a></li>
+                                    <li><a href="#">Раздел3</a></li>
+                                    <li><a href="#">Раздел4</a></li>
+                                    <li><a href="#">Раздел5</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-2">
+                                <h5>Мы в соц. сетях</h5>
+                                <ul>
+                                    <li>
+                                        <a href="#">VK</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Telegram</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">YouTube</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-2">
+                                <h5>Связаться с нами</h5>
+                                <ul>
+                                    <li><a href="tel:+79000000000">+79000000000</a></li>
+                                    <li><a href="email:email@email.com">email@email.com</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-2">
+                                <h5>Оставить отзыв</h5>
+                                @permission('reviews')
+                                    <form action="{{ route('sendReview') }}" method="POST">
+                                        @csrf
+                                        <div>
+                                            <label for="message" class="label-form">Сообщение</label>
+                                            <input type="text" name="message" class="form-control">
+                                            <button type="submit" class="btn btn-primary">Отправить</button>
+                                        </div>
+                                    </form>
+                                @endpermission
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            @show
         </main>
     </div>
 </body>

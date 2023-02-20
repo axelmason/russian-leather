@@ -11,6 +11,7 @@ export default {
     data: () => ({
         links: [
             { title: 'Роли', href: 'roles' },
+            { title: 'Отзывы', href: 'reviews' },
             { title: 'Настройки', href: 'settings' },
         ]
     }),
@@ -28,6 +29,7 @@ export default {
         border: 1px solid lightgray;
         list-style: none;
         padding-left: 0!important;
+        background-color: white;
     }
 
     &-item {

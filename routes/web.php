@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\AuthController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PermissionController;
+use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserVerifyController;
 
@@ -38,13 +39,19 @@ Route::name('admin.')->prefix('admin')->controller(AdminController::class)->grou
         Route::get('/', 'dashboard')->name('dashboard');
     });
 
-    Route::get('/permissions', [PermissionController::class, 'get']);
 
 
     Route::get('/roles', [RoleController::class, 'get']);
     Route::get('/roles/{roleId}', [RoleController::class, 'getOne']);
-
+    Route::get('/permissions', [PermissionController::class, 'get']);
     Route::patch('/roles/{roleId}/permissions', [RoleController::class, 'changePermissions']);
+
+    Route::get('/reviews', [ReviewController::class, 'get']);
+});
+
+Route::middleware('auth')->group(function() {
+    Route::post('sendReview', [ReviewController::class, 'create'])->name('sendReview');
+    Route::post('setRead', [ReviewController::class, 'read']);
 });
 
 Route::get('/account/verify/{token}', [UserVerifyController::class, 'verifyEmail'])->name('user.verify');

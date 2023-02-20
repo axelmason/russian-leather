@@ -35,6 +35,7 @@ export default {
 
 <style lang="scss" scoped>
 .menu {
+    z-index: 9999;
     position: relative;
 
     &-toggler {
@@ -49,6 +50,7 @@ export default {
         width: 100%;
         padding: 1em 2em;
         border-radius: 0 0 10px 10px;
+        z-index: 999;
     }
 
     &-items {

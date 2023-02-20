@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Settings extends Model
 {
     use HasFactory;
+
+    protected $primaryKey = 'name';
+
+    protected $casts = [
+        'value' => 'array'
+    ];
 }

@@ -8,16 +8,12 @@
 @import 'bootstrap/scss/bootstrap';
 
 .video-wrapper {
-    overflow: hidden;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
+    position: relative;
+    text-align: center;
 }
 
 #video {
-    width: 100%;
-    overflow: hidden;
+    width: 66.6%;
 }
 
 main {
@@ -120,5 +116,22 @@ main {
 
     &-form {
 
+    }
+}
+
+footer {
+    margin-top: 2em;
+
+    ul {
+        list-style: none;
+        padding-left: 0;
+
+        li {
+            margin: 0 .5em;
+        }
+    }
+
+    a {
+        color: black;
     }
 }

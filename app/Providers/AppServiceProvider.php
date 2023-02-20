@@ -2,7 +2,9 @@
 
 namespace App\Providers;
 
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Blade;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -24,13 +26,24 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Blade::if('role', function($roles) {
-            if(!auth()->check()) {
+        Blade::if('permission', function ($permission) {
+            if (!auth()->check()) {
                 return false;
             }
 
-            $roles_list = explode(',', $roles);
-            return in_array(auth()->user()->role->slug, $roles_list);
+            $permissions_list = explode(',', $permission);
+
+            $role_permissions = Arr::pluck(auth()->user()->role->permissions, 'slug');
+
+            $found = false;
+            foreach ($permissions_list as $get) {
+                if (in_array($get, $role_permissions)) {
+                    $found = true;
+                    break 1;
+                }
+            }
+
+            return $found;
         });
     }
 }

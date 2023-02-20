@@ -4,6 +4,8 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Auth\AuthController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PermissionController;
+use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserVerifyController;
 
 /*
@@ -35,6 +37,14 @@ Route::name('admin.')->prefix('admin')->controller(AdminController::class)->grou
     Route::middleware(['admin'])->group(function() {
         Route::get('/', 'dashboard')->name('dashboard');
     });
+
+    Route::get('/permissions', [PermissionController::class, 'get']);
+
+
+    Route::get('/roles', [RoleController::class, 'get']);
+    Route::get('/roles/{roleId}', [RoleController::class, 'getOne']);
+
+    Route::patch('/roles/{roleId}/permissions', [RoleController::class, 'changePermissions']);
 });
 
 Route::get('/account/verify/{token}', [UserVerifyController::class, 'verifyEmail'])->name('user.verify');

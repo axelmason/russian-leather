@@ -48,7 +48,7 @@ class RolePermissionsSeeder extends Seeder
         $role = Role::where('slug', $slug)->first();
 
         foreach ($permissions as $permission) {
-            $permissionId = Permission::where('name', $permission)->first();
+            $permissionId = Permission::where('slug', $permission)->first();
             $role->permissions()->attach($permissionId);
         }
     }

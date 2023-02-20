@@ -17,19 +17,19 @@ class PermissionSeeder extends Seeder
         echo "Creating permissions...\n";
 
         $permissions = [
-            'full_access',
-            'get_related',
-            'get_info',
-            'reviews',
-            'personal_work',
-            'form_contract',
-            'edit_content',
-            'order_management'
+            'full_access' => 'Полный доступ',
+            'get_related' => 'Получение рекомендаций',
+            'get_info' => 'Получение общей информации',
+            'reviews' => 'Отзывы',
+            'personal_work' => 'Работа с личным кабинетом',
+            'form_contract' => 'Формирование типового договора и счета на оплату подтвержденного заказа',
+            'edit_content' => 'Полный доступ к редактированию контента на сайте',
+            'order_management' => 'Обработка заказов'
         ];
 
-        foreach($permissions as $p) {
-            Permission::create(['name' => $p]);
-            echo "Permission $p created.\n";
+        foreach($permissions as $slug => $name) {
+            Permission::create(['name' => $name, 'slug' => $slug]);
+            echo "Permission $slug ($name) created.\n";
         }
     }
 }

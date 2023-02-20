@@ -22,7 +22,7 @@
     <div id="app">
         <main>
             @section('header')
-            <header class="py-2 border-bottom bg-white position-fixed w-100">
+            <header class="py-2 border-bottom bg-white position-fixed w-100" style="height: 75px">
                 <div class="container">
                     <div class="row align-items-center">
                         <div class="col-lg-1">
@@ -55,7 +55,7 @@
                 </div>
             </header>
             @show
-            <div class="content">
+            <div class="content" style="padding-top: 75px;">
                 @yield('content')
             </div>
             {{-- <footer>

@@ -44,7 +44,7 @@ class AuthService extends BaseService
     {
         $user = $this->repository->where('email', $data['email'])->first();
 
-        if($user->role->slug != Role::ADMIN) {
+        if($user->role->slug == Role::ADMIN) {
             return Auth::attempt(['email' => $data['email'], 'password' => $data['password']]);
         }
         return false;

@@ -24,4 +24,9 @@ class AdminController extends Controller
         }
         return back()->withErrors(['message' => 'Не удалось войти как администратор']);
     }
+
+    public function dashboard()
+    {
+        return view('admin.main');
+    }
 }

@@ -8,6 +8,9 @@ use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserVerifyController;
+use App\Http\Controllers\PageController;
+use App\Http\Controllers\SettingsController;
+use App\Models\Permission;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,6 +24,14 @@ use App\Http\Controllers\UserVerifyController;
 */
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+
+Route::name('category.')->group(function() {
+    Route::name('catalog')->prefix('catalog')->group(function() {
+        Route::get('/', [PageController::class, 'index'])->name('index');
+        Route::get('/{parent_slug}', [PageController::class, 'subCategory'])->name('subCategory');
+        Route::get('/product/{product_id}', [PageController::class, 'product'])->name('product');
+    });
+});
 
 
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
@@ -39,19 +50,24 @@ Route::name('admin.')->prefix('admin')->controller(AdminController::class)->grou
         Route::get('/', 'dashboard')->name('dashboard');
     });
 
-
-
     Route::get('/roles', [RoleController::class, 'get']);
     Route::get('/roles/{roleId}', [RoleController::class, 'getOne']);
     Route::get('/permissions', [PermissionController::class, 'get']);
     Route::patch('/roles/{roleId}/permissions', [RoleController::class, 'changePermissions']);
 
     Route::get('/reviews', [ReviewController::class, 'get']);
+    Route::patch('/reviews/read-toggler/{reviewId}', [ReviewController::class, 'toggleRead']);
+
+    Route::post('/settings/save', [SettingsController::class, 'save']);
+    Route::get('/settings', [SettingsController::class, 'get']);
 });
 
 Route::middleware('auth')->group(function() {
-    Route::post('sendReview', [ReviewController::class, 'create'])->name('sendReview');
-    Route::post('setRead', [ReviewController::class, 'read']);
+    Route::middleware('permissions:'.Permission::PERSONAL_WORK)->group(function () {
+        Route::get('/personal', [PageController::class, 'personal'])->name('personal');
+    });
+
+    Route::post('sendReview', [ReviewController::class, 'create'])->name('sendReview')->middleware('permissions:'.Permission::REVIEWS);
 });
 
 Route::get('/account/verify/{token}', [UserVerifyController::class, 'verifyEmail'])->name('user.verify');

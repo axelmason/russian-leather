@@ -15,6 +15,17 @@ return new class extends Migration
     {
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('slug');
+            $table->integer('category_id')->nullable();
+            $table->enum('type', [
+                'products',
+                'about',
+                'standarts',
+                'work_with_clients',
+                'career',
+                'contacts'
+            ]);
             $table->timestamps();
         });
     }

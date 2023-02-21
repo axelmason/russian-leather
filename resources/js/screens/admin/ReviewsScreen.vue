@@ -26,7 +26,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <Review v-for="review in reviews" :key="review.id" :review="review" />
+                        <Review v-for="review in reviews" :key="review.id" :review="review" :read="review.read" />
                     </tbody>
                 </table>
             </div>
@@ -62,7 +62,7 @@ export default {
             window.axios.get('/admin/reviews')
                 .then((response) => {
                     this.reviews = response.data.reviews;
-                    console.log(response.data)
+
                     this.loading = false;
                 })
         }

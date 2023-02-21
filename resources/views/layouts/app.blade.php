@@ -55,7 +55,7 @@
                 </div>
             </header>
             @show
-            <div class="content" style="padding-top: 75px;">
+            <div class="content" style="padding-top: 75px; height: 100%">
                 <div class="container-fluid bg-dark">
                         @if (session()->has('success'))
                         <div class="container pt-2">

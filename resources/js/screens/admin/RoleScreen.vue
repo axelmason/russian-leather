@@ -10,7 +10,7 @@
                 </div>
                 <div class="col-9">
                     <Loader v-if="loading" />
-                    <role-component :key="openRole" v-if="openRole" :role-id="openRole" :permissions="permissions" />
+                    <role-component v-else :key="openRole" v-if="openRole" :role-id="openRole" :permissions="permissions" @on-save="getPermissions" />
                 </div>
             </div>
         </div>
@@ -50,11 +50,15 @@ export default {
                     this.roles = response.data.roles;
                 })
         },
-        getPermissions() {
-            window.axios.get('/admin/permissions/')
+        async getPermissions() {
+            this.loading = true;
+
+            await window.axios.get('/admin/permissions/')
                 .then((response) => {
                     this.permissions = response.data.permissions;
                 })
+
+            this.loading = false;
         }
     }
 }

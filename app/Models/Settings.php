@@ -10,6 +10,9 @@ class Settings extends Model
     use HasFactory;
 
     protected $primaryKey = 'name';
+    protected $keyType = 'string';
+
+    protected $fillable = ['name', 'value'];
 
     protected $casts = [
         'value' => 'array'

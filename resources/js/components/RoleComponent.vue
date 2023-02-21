@@ -60,7 +60,7 @@ import Loader from './Loader.vue';
 
                 window.axios.patch('/admin/roles/'+this.roleId+'/permissions', values)
                 .then((response) => {
-                    console.log(response.data)
+                    this.$emit('onSave');
                 })
             }
         },

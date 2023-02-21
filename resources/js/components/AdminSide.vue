@@ -12,7 +12,7 @@ export default {
         links: [
             { title: 'Роли', href: 'roles' },
             { title: 'Отзывы', href: 'reviews' },
-            { title: 'Настройки', href: 'settings' },
+            { title: 'Настройки', href: 'settings' }
         ]
     }),
     methods: {

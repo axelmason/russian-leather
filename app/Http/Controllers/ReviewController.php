@@ -24,4 +24,13 @@ class ReviewController extends Controller
         $reviews = Review::orderBy('read')->with('user')->get();
         return response()->json(['reviews' => $reviews]);
     }
+
+    public function toggleRead($reviewId)
+    {
+        $review = Review::find($reviewId);
+        $review->read = !$review->read;
+        $review->save();
+
+        return response()->json(['success' => true]);
+    }
 }

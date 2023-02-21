@@ -1,0 +1,217 @@
+{
+    "products": {
+        "title": "Продукция и услуги",
+        "subcategories": {
+            "leather": {
+                "title": "Кожа и мех",
+                "subcategories": {
+                    "shoes": {
+                        "title": "Кожа для обуви"
+                    },
+                    "haberdashery": {
+                        "title": "Галантерейная кожа"
+                    },
+                    "furniture": {
+                        "title": "Кожа для мебели"
+                    },
+                    "car": {
+                        "title": "Автомобильная кожа"
+                    },
+                    "air": {
+                        "title": "Авиационная кожа"
+                    },
+                    "lining": {
+                        "title": "Подкладочная кожа"
+                    },
+                    "fur": {
+                        "title": "Мех"
+                    },
+                    "lining_fur": {
+                        "title": "Подкладочный мех"
+                    }
+                }
+            },
+            "leather_products": {
+                "title": "Изделия из кожи",
+                "subcategories": {
+                    "overalls": {
+                        "title": "Спецодежда"
+                    },
+                    "souvenir": {
+                        "title": "Сувенирная продукция"
+                    }
+                }
+            },
+            "used": {
+                "title": "Продажа б/у оборудования и отходов производства",
+                "subcategories": {}
+            },
+            "lab": {
+                "title": "Лаборатория",
+                "subcategories": {}
+            }
+        }
+    },
+    "about": {
+        "title": "О компании",
+        "subcategories": {
+            "group": {
+                "title": "Группа компаний \"Русская кожа\"",
+                "subcategories": {
+                    "info": {
+                        "title": "Русская кожа (информация, руководство)"
+                    },
+                    "info_altai": {
+                        "title": "Русская кожа Алтай (информация, руководство)"
+                    },
+                    "ufk": {
+                        "title": "UFK"
+                    },
+                    "bks": {
+                        "title": "BKS"
+                    },
+                    "home": {
+                        "title": "Home Collection"
+                    }
+                }
+            },
+            "team": {
+                "title": "Наша команда",
+                "subcategories": {}
+            },
+            "history": {
+                "title": "История",
+                "subcategories": {}
+            },
+            "rewards": {
+                "title": "Награды и достижения",
+                "subcategories": {}
+            },
+            "media": {
+                "title": "Фото и видео",
+                "subcategories": {}
+            },
+            "tourism": {
+                "title": "Промышленный туризм",
+                "subcategories": {}
+            },
+            "news": {
+                "title": "Новости",
+                "subcategories": {}
+            }
+        }
+    },
+    "standards": {
+        "title": "Стандарты качества",
+        "subcategories": {
+            "production": {
+                "title": "Производство",
+                "subcategories": {}
+            },
+            "certificate": {
+                "title": "Международные сертификаты качества",
+                "subcategories": {}
+            },
+            "docs": {
+                "title": "Документация",
+                "subcategories": {
+                    "complaint": {
+                        "title": "Рекламация"
+                    },
+                    "standard": {
+                        "title": "Стандарт организации"
+                    },
+                    "c_d_p": {
+                        "title": "Сертификаты, декларации, протоколы"
+                    },
+                    "reqs": {
+                        "title": "Технические требования/ документы СМК"
+                    },
+                    "specifications": {
+                        "title": "Спецификации"
+                    },
+                    "sort": {
+                        "title": "Схемы сортировки"
+                    },
+                    "shareholders": {
+                        "title": "Акционерам"
+                    },
+                    "quality_policy": {
+                        "title": "Политика в Области качества"
+                    },
+                    "CRP": {
+                        "title": "Политика корпоративной ответственности"
+                    }
+                }
+            },
+            "ecology": {
+                "title": "Экология",
+                "subcategories": {}
+            }
+        }
+    },
+    "clients": {
+        "title": "Клиентам и партнёрам",
+        "subcategories": {
+            "where_to_find": {
+                "title": "Где купить",
+                "subcategories": {}
+            },
+            "delivery": {
+                "title": "Доставка",
+                "subcategories": {}
+            },
+            "to_providers": {
+                "title": "Поставщикам",
+                "subcategories": {
+                    "contract": {
+                        "title": "Типовой договор"
+                    },
+                    "application": {
+                        "title": "Заявка на сотрудничество"
+                    },
+                    "logistic": {
+                        "title": "Логистика"
+                    }
+                }
+            },
+            "materials": {
+                "title": "Полезные материалы",
+                "subcategories": {
+                    "types": {
+                        "title": "Кожа: виды, способы выделки, классификация"
+                    },
+                    "cleaning": {
+                        "title": "Очистка и уход за кожей"
+                    }
+                }
+            }
+        }
+    },
+    "career": {
+        "title": "Работа в компании",
+        "subcategories": {
+            "vacancies": {
+                "title": "Вакансии",
+                "subcategories": {}
+            },
+            "education": {
+                "title": "Развитие и обучение сотрудников",
+                "subcategories": {}
+            },
+            "career": {
+                "title": "Работа у нас",
+                "subcategories": {}
+            }
+        }
+    },
+    "contacts": {
+        "title": "Контакты",
+        "subcategories": {
+            "contacts": {
+                "title": "Контакты",
+                "subcategories": {}
+            }
+        }
+    }
+}

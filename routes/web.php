@@ -3,13 +3,14 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Auth\AuthController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserVerifyController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\SettingsController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ProductController;
 use App\Models\Permission;
 
 /*
@@ -23,16 +24,8 @@ use App\Models\Permission;
 |
 */
 
-Route::get('/', [HomeController::class, 'index'])->name('home');
-
-Route::name('category.')->group(function() {
-    Route::name('catalog')->prefix('catalog')->group(function() {
-        Route::get('/', [PageController::class, 'index'])->name('index');
-        Route::get('/{parent_slug}', [PageController::class, 'subCategory'])->name('subCategory');
-        Route::get('/product/{product_id}', [PageController::class, 'product'])->name('product');
-    });
-});
-
+Route::get('/', [PageController::class, 'home'])->name('home');
+Route::get('/catalog/{category?}', [CategoryController::class, 'category'])->name('catalog.category');
 
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
@@ -42,11 +35,11 @@ Route::middleware(['guest'])->group(function () {
         Route::post('/register', 'register');
     });
 });
-Route::name('admin.')->prefix('admin')->controller(AdminController::class)->group(function() {
+Route::name('admin.')->prefix('admin')->controller(AdminController::class)->group(function () {
     Route::get('/login', 'loginPage')->name('loginPage');
     Route::post('/login', 'login')->name('login');
 
-    Route::middleware(['admin'])->group(function() {
+    Route::middleware(['admin'])->group(function () {
         Route::get('/', 'dashboard')->name('dashboard');
     });
 
@@ -62,12 +55,12 @@ Route::name('admin.')->prefix('admin')->controller(AdminController::class)->grou
     Route::get('/settings', [SettingsController::class, 'get']);
 });
 
-Route::middleware('auth')->group(function() {
-    Route::middleware('permissions:'.Permission::PERSONAL_WORK)->group(function () {
-        Route::get('/personal', [PageController::class, 'personal'])->name('personal');
+Route::middleware('auth')->group(function () {
+    Route::middleware('permissions:' . Permission::PERSONAL_WORK)->prefix('personal')->group(function () {
+        Route::get('/', [PageController::class, 'personal'])->name('personal');
     });
 
-    Route::post('sendReview', [ReviewController::class, 'create'])->name('sendReview')->middleware('permissions:'.Permission::REVIEWS);
+    Route::post('sendReview', [ReviewController::class, 'create'])->name('sendReview')->middleware('permissions:' . Permission::REVIEWS);
 });
 
 Route::get('/account/verify/{token}', [UserVerifyController::class, 'verifyEmail'])->name('user.verify');

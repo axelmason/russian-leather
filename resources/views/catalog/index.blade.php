@@ -1,30 +1,15 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
+    <div class="container py-5">
         <div class="row">
-            <div class="col-lg-6 col-12">
-                <div class="card">
-                    <div class="card-body">
-                        <p class="card-text">Кожа и мех</p>
+            @foreach ($categories as $category)
+                <div class="col-lg-4 col-12">
+                    <div class="card">
+                        <a href="{{ route('catalog.category', $category->slug) }}" class="card-body">{{ $category->name }}</a>
                     </div>
                 </div>
-                <div class="card">
-                    <div class="card-body">
-                        <p class="card-text">Изделия из кожи</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-body">
-                        <p class="card-text">Продажа б/у оборудования и отходов производства</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-body">
-                        <p class="card-text">Лаборатория</p>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 @endsection

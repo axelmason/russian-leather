@@ -26,7 +26,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <Review v-for="review in reviews" :key="review.id" :review="review" :read="review.read" />
+                        <Review v-for="review in reviews" :key="review.id" :review="review" />
                     </tbody>
                 </table>
             </div>

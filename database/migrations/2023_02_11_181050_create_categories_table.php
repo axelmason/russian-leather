@@ -17,15 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('slug');
-            $table->integer('category_id')->nullable();
-            $table->enum('type', [
-                'products',
-                'about',
-                'standarts',
-                'work_with_clients',
-                'career',
-                'contacts'
-            ]);
+            $table->integer('parent_id')->nullable();
             $table->timestamps();
         });
     }

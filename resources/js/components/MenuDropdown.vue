@@ -19,7 +19,7 @@ export default {
     data() {
         return {
             links: [
-                { href: '', text: 'Продукция и услуги' },
+                { href: '/catalog/', text: 'Продукция и услуги' },
                 { href: '', text: 'О компании' },
                 { href: '', text: 'Стандарты качества' },
                 { href: '', text: 'Клиентам и партнерам' },
@@ -30,6 +30,11 @@ export default {
             isShow: false
         }
     },
+    methods: {
+        goToPage(link) {
+            window.location.href = `${window.location.origin}/${link}`
+        }
+    }
 }
 </script>
 
@@ -82,10 +87,10 @@ export default {
             }
 
             &:last-child {
-            a {
-                border-bottom: none;
+                a {
+                    border-bottom: none;
+                }
             }
-        }
         }
     }
 }

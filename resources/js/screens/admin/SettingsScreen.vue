@@ -20,8 +20,7 @@
                     <div class="setting-text-item" v-if="setting.name == 'leather_types'">
                         <div class="my-1">
                             <h5 class="mb-1">{{ setting.value.title }}</h5>
-                            <input v-model="setting.value.description" class="form-control"
-                                :value="setting.value.description">
+                            <input v-model="setting.value.description" class="form-control">
                         </div>
                     </div>
                     <div class="setting-array-item" v-if="setting.name == 'news'">

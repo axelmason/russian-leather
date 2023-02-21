@@ -13,7 +13,7 @@
 <script>
 export default {
     data: () => ({
-        readData: this.read
+        readData: false
     }),
     props: {
         review: {
@@ -24,7 +24,7 @@ export default {
         }
     },
     created() {
-        console.log()
+        this.readData = this.read;
     },
     methods: {
         setRead(id) {

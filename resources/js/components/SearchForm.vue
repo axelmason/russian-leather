@@ -2,7 +2,7 @@
     <form action="#" method="get">
         <div>
             <div class="input-group">
-                <div class="search-img-wrapper"><img src="icons/search.svg" alt=""></div>
+                <div class="search-img-wrapper"><img src="/icons/search.svg" alt=""></div>
                 <input type="text" name="search" placeholder="Поиск" v-model="searchTerm" @keyup="search">
             </div>
             <div class="input-results" v-if="loading || message || searchResults.length">
@@ -10,7 +10,7 @@
                 <Loader v-if="loading" />
                 <ul v-else class="result-list">
                     <li class="input-result" v-for="result in searchResults" :key="result">
-                        <a href="#">123</a>
+                        <a :href="`/catalog/product/${result.slug}`">{{ result.title }}</a>
                     </li>
                 </ul>
             </div>
@@ -48,7 +48,7 @@ export default {
                     .get(`http://localhost/api/search?query=${this.searchTerm}`)
                     .then(response => {
                         if (response.status === 200) {
-                            this.searchResults = response.data
+                            this.searchResults = response.data.result
                         } else {
                             this.message = "Ничего не найдено..."
                         }
